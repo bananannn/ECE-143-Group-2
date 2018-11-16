@@ -10,7 +10,7 @@ Gathering and understanding Uber Movement data for the city of Los Angeles given
 
 Uber Movement dataset (https://ubr.to/2JvIdNA)
 
-The entire dataset comprises of 6 CSV files, for 4 different quarters of the year 2017 and one quarter of the year 2018 along with one map JSON file for Los Angeles. The files comprise of Source ID, Destination ID, Month of the Year, Mean Travel Time for the city of Los Angeles. 
+The entire dataset comprises of 6 CSV files, for 4 different quarters of the year 2017 and one quarter of the year 2018 along with one map JSON file for Los Angeles. The CSV files comprise of Source ID, Destination ID, Month of the Year, Mean Travel Time for the city of Los Angeles. The map file contains the boundaries in geospatial (.geoJSON) format, including Zone IDs.
 
 ## Proposed Solution and  Real-world applications:
 
