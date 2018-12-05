@@ -11,6 +11,7 @@ def speed(data_o,name):
     :param data_o: DataFrame - the dataset
 	:param name: str - the name of the dataset
     '''
+	
 	assert isinstance(data_o,pd.DataFrame)
 	assert isinstance(name,str)
 	
@@ -41,6 +42,7 @@ def flow(data_o,name):
     :param data_o: DataFrame - the dataset
 	:param name: str - the name of the dataset
     '''
+	
 	assert isinstance(data_o,pd.DataFrame)
 	assert isinstance(name,str)
 	
@@ -71,6 +73,7 @@ def flow_agg(data_o,name,fig,color):
     :param data_o: DataFrame - the dataset
 	:param name: str - the name of the dataset
     '''
+	
 	assert isinstance(data_o,pd.DataFrame)
 	assert isinstance(name,str)
 	
