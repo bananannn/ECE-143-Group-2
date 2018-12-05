@@ -11,10 +11,10 @@ def speed(data_o,name):
     :param data_o: DataFrame - the dataset
     :param name: str - the name of the dataset
     '''
-	
+    
     assert isinstance(data_o,pd.DataFrame)
     assert isinstance(name,str)
-	
+    
     average = []
     min = []
     max = []
@@ -34,18 +34,18 @@ def speed(data_o,name):
     plt.grid(True)
     plt.xlabel('hour of day')
     plt.ylabel('speed')
-	
-	
+    
+    
 def flow(data_o,name):
     '''
     The function loads the PEMS freeway flow data and plot the average, min and max flow
     :param data_o: DataFrame - the dataset
     :param name: str - the name of the dataset
     '''
-	
+    
     assert isinstance(data_o,pd.DataFrame)
     assert isinstance(name,str)
-	
+    
     average = []
     min = []
     max = []
@@ -65,8 +65,8 @@ def flow(data_o,name):
     plt.grid(True)
     plt.xlabel('hour of day')
     plt.ylabel('flow')
-	
-	
+
+    
 def flow_agg(data_o,name,fig,color):
     '''
     The function loads several PEMS freeway flow datasets and plot the average flow
@@ -75,10 +75,10 @@ def flow_agg(data_o,name,fig,color):
     :param fig: figure - figure to be plotted
     :param color: str - color to be plotted
     '''
-	
+    
     assert isinstance(data_o,pd.DataFrame)
     assert isinstance(name,str)
-	
+    
     average = []
 
     for i in range(24):
