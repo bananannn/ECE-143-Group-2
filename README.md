@@ -2,6 +2,11 @@
 
 Analysis of Traffic Data for the city of Los Angeles
 
+## Group members
+Moyan Zhou: email: moz006@ucsd.edu
+Cai Chen: email: cac005@ucsd.edu
+
+
 ## Problem:
 
 Gathering and understanding Uber Movement data, traffic incidents data, and freeways data for the city of Los Angeles given the location data and the month of the year.
