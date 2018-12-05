@@ -5,6 +5,7 @@ Analysis of Traffic Data for the city of Los Angeles
 ## Group members
 Moyan Zhou: email: moz006@ucsd.edu
 Cai Chen: email: cac005@ucsd.edu
+Yifan Ruan: email: yir021@ucsd.edu
 
 
 ## Problem:
@@ -39,6 +40,9 @@ To install: pip install bokeh
 Forliumn: "folium builds on the data wrangling strengths of the Python ecosystem and the mapping strengths of the leaflet.js library. "
 Website: https://python-visualization.github.io/folium/
 To install: pip install folium
+
+Matplotlib: "a Python 2D plotting library which produces publication quality figures in a variety of hardcopy formats and interactive environments across platforms"
+To instal: pip install matplotlib
 
 
 ## Files Contained
