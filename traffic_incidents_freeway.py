@@ -1,5 +1,6 @@
 import pandas as pd
 import heapq
+import bokeh.io as io
 from bokeh.plotting import figure, output_file, show
 from bokeh.palettes import brewer
 
@@ -42,7 +43,7 @@ def top_10_freeways(traffic):
     return [x[0] for x in top_10_freeways_tuple]
 
 
-def total_traffic_incidents_dayofmonth(traffic, fname):
+def total_traffic_incidents_dayofmonth(traffic):
     '''
     Input a traffic dataframe with extracted hour information
     return a line plot of the total number of incidents happened in each of the hours
@@ -53,9 +54,8 @@ def total_traffic_incidents_dayofmonth(traffic, fname):
     '''
 
     assert isinstance(traffic, pd.DataFrame)
-    assert isinstance(fname, str)
 
-    output_file(fname)
+    io.output_notebook()
 
     p = figure(title='Total Traffic incidents in one month', plot_width=400, plot_height=400)
 
@@ -69,7 +69,7 @@ def total_traffic_incidents_dayofmonth(traffic, fname):
     show(p)
 
 
-def traffic_incidents_freeways_dayofmonth(traffic, fname):
+def traffic_incidents_freeways_dayofmonth(traffic):
     '''
     a plot with different freeways' incidents' number in different hours of a month
     :param traffic: a cleaned dataframe
@@ -78,7 +78,6 @@ def traffic_incidents_freeways_dayofmonth(traffic, fname):
     '''
 
     assert isinstance(traffic, pd.DataFrame)
-    assert isinstance(fname, str)
 
     incidents_oneday_all_10_ways = []
 
@@ -93,7 +92,7 @@ def traffic_incidents_freeways_dayofmonth(traffic, fname):
 
         incidents_oneday_all_10_ways.append(incidents_oneday_oneway)
 
-    output_file(fname)
+    io.output_notebook()
 
     p = figure(title='Total Traffic incidents in one month', plot_width=950, plot_height=600)
     colors_10 = brewer['Spectral'][10]
