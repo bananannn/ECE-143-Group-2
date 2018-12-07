@@ -4,7 +4,7 @@ import math
 import matplotlib.pyplot as plt
 from bokeh.palettes import brewer
 
-
+                      
 def speed(data_o,name):
     '''
     The function loads the PEMS freeway speed data and plot the average, min and max speed
@@ -31,6 +31,7 @@ def speed(data_o,name):
     plt.plot(x, min, color='blue', label='min speed')
     plt.plot(x, max, color='red', label='max speed')
     plt.legend()
+    plt.legend(fontsize=9)
     plt.grid(True)
     plt.xlabel('hour of day')
     plt.ylabel('speed')
@@ -88,3 +89,28 @@ def flow_agg(data_o,name,fig,color):
     x = range(24)
     plt.title('Daily Flow Analysis')
     plt.plot(x, average, label=name, color=color, figure = fig)
+    
+    
+def plot(data,name):
+    '''
+    The function generates the flow plot for the dataset
+    :param data: list of DataFrame - the list of the datasets
+    :param name: str - the name
+    '''    
+    
+    assert isinstance(data,list)
+    assert all(isinstance(x,pd.DataFrame) for x in data)
+    assert isinstance(name,list)
+    assert all(isinstance(x,str) for x in name)
+    
+    l = len(data)
+    colors = brewer['Spectral'][l]
+    fig = plt.figure(figsize=(12,7))
+    
+    for i in range(l):
+        flow_agg(data[i],name[i],fig,colors[i])
+        
+    plt.legend(fontsize=10)
+    plt.grid(True)
+    plt.xlabel('hour of day')
+    plt.ylabel('flow')
