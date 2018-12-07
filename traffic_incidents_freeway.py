@@ -28,11 +28,11 @@ def load_pems_incidents(traffic):
     return traffic
 
 
-def top_10_freeways(traffic):
+def top_9_freeways(traffic):
     '''
-    Return a list with top 10 freeways which has most incidents' numbers
+    Return a list with top 9 freeways which has most incidents' numbers
     :param traffic: the traffic dataframe
-    :return: a list with top 10 freeways' numbers
+    :return: a list with top 9 freeways' numbers
     '''
 
     assert isinstance(traffic, pd.DataFrame)
@@ -40,7 +40,14 @@ def top_10_freeways(traffic):
     freeways = dict(traffic.groupby(['Freeway Number'])['Freeway Number'].count())
     top_10_freeways_tuple = heapq.nlargest(10, freeways.items(), key=lambda i: i[1])
 
-    return [x[0] for x in top_10_freeways_tuple]
+    top_9_freeways = []
+
+    for i in range(8):
+        top_9_freeways.append(top_10_freeways_tuple[i][0])
+
+    top_9_freeways.append(top_10_freeways_tuple[9][0])
+
+    return top_9_freeways
 
 
 def total_traffic_incidents_dayofmonth(traffic):
@@ -79,30 +86,36 @@ def traffic_incidents_freeways_dayofmonth(traffic):
 
     assert isinstance(traffic, pd.DataFrame)
 
-    incidents_oneday_all_10_ways = []
+    incidents_oneday_all_9_ways = []
 
     freeways = dict(traffic.groupby(['Freeway Number'])['Freeway Number'].count())
     top_10_freeways_tuple = heapq.nlargest(10, freeways.items(), key=lambda i: i[1])
-    top_10_freeways = [x[0] for x in top_10_freeways_tuple]
 
-    for j in top_10_freeways:
+    top_9_freeways = []
+
+    for i in range(8):
+        top_9_freeways.append(top_10_freeways_tuple[i][0])
+
+    top_9_freeways.append(top_10_freeways_tuple[9][0])
+
+    for j in top_9_freeways:
         incidents_oneday_oneway = []
         for i in list(range(24)):
             incidents_oneday_oneway.append(traffic[(traffic['hours'] == i) & (traffic['Freeway Number'] == j)].shape[0])
 
-        incidents_oneday_all_10_ways.append(incidents_oneday_oneway)
+        incidents_oneday_all_9_ways.append(incidents_oneday_oneway)
 
     io.output_notebook()
 
-    p = figure(title='Total Traffic incidents in one month', plot_width=950, plot_height=600)
-    colors_10 = brewer['Spectral'][10]
+    p = figure(title='Total Traffic incidents in All Freeways', plot_width=950, plot_height=600)
+    colors_9 = brewer['Spectral'][9]
 
     # add a line renderer
-    for i in range(10):
-        current_label = "Freeway Number: " + str(top_10_freeways[i])
-        p.line(list(range(24)), incidents_oneday_all_10_ways[i], color=colors_10[i], legend=current_label, line_width=2)
+    for i in range(9):
+        current_label = "Freeway Number: " + str(top_9_freeways[i])
+        p.line(list(range(24)), incidents_oneday_all_9_ways[i], color=colors_9[i], legend=current_label, line_width=2)
 
-    p.xaxis.axis_label = 'Month'
+    p.xaxis.axis_label = 'Hour of Day'
     p.yaxis.axis_label = 'Number of traffic incidents'
     p.legend.label_text_font_size = '8pt'
 
