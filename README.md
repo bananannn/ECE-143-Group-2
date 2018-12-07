@@ -23,9 +23,9 @@ The entire dataset comprises of 6 CSV files, for 4 different quarters of the yea
 Traffic Freeways dataset (http://pems.dot.ca.gov/?dnode=Clearinghouse)
 
 The dataset of freeway flows and speeds contains the station information in the district 7 (LA areas). For each row in the table, it has the timestamp, the flow and speeds around the stations, and the direction of the route. 
-The dataset of triffic incidents happened in each freeway in LA area. For each of the incidents, it has the timestamp, the direction of the freeway, the freeway number, and the description of the incident. 
+The dataset of traffic incidents happened in each freeway in LA area. For each of the incidents, it has the timestamp, the direction of the freeway, the freeway number, and the description of the incident. 
 
-Traffic incients dataset (https://data.lacity.org/A-Safe-City/Traffic-Collision-Data-from-2010-to-Present/d5tf-ez2w)
+Traffic incidents dataset (https://data.lacity.org/A-Safe-City/Traffic-Collision-Data-from-2010-to-Present/d5tf-ez2w)
 
 The dataset contains the traffic collisions happened in LA from 2010 to present. For each of the incidents, it includes the time it occured, the location in latitude and longitude, the cross street, and the area. 
 
